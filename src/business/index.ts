@@ -1,11 +1,3 @@
-import { ManualDeckFactory } from './card'
-
-export * from './card'
-export * from './row'
-
-export function test() {
-    console.clear()
-    const deckFactory = new ManualDeckFactory()
-    const deck1 = deckFactory.createDeck()
-    // console.log(deck1)
-}
+export { Card } from './card'
+export { Game, GameFactory } from './game'
+export { RealDeckFactory } from './deck'

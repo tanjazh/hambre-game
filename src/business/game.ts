@@ -1,5 +1,6 @@
 import { Player } from './player'
-import { Card, Deck, DeckFactory } from "./card";
+import { Card } from "./card";
+import { Deck, DeckFactory } from './deck'
 import { Row } from "./row";
 
 //bestimmt den ganzen Spielverlauf und alle Interaktionen
@@ -9,7 +10,7 @@ export class Game {
     private readonly archivedRows: Map<Player, Row[]>;
     private readonly activeRows: Map<Player, Row[]>;
     private activePlayerIndex: number
-    
+
     constructor(players: Player[], deck: Deck, archivedRows: Map<Player, Row[]>, activeRows: Map<Player, Row[]>, activePlayerIndex: number) {
         this.deck = deck
         this.players = players
@@ -18,10 +19,10 @@ export class Game {
         this.activePlayerIndex = activePlayerIndex
     }
 
-    public getActivePlayer(): Player {       
+    public getActivePlayer(): Player {
         return this.players[this.activePlayerIndex]
     }
-    
+
     public isFinished(): boolean {
         return this.deck.isEmpty()
     }
@@ -44,7 +45,7 @@ export class Game {
 
     public placeCardToRow(card: Card, row: Row): void {
         //validate card
-        if(card !== this.deck.peekCard()) {
+        if (card !== this.deck.peekCard()) {
             return
         }
         //validate row
@@ -55,20 +56,20 @@ export class Game {
 
         // remove card from deck
         this.deck.popCard()
-        
+
         // add card to row
         row.addCard(card)
-        
+
         // handle full row
-        if(row.isFull()) {
+        if (row.isFull()) {
             // move row to archived rows
             activePlayer.getArchivedRows().push(row)
             const rowIndex: number = activePlayer.getActiveRows().indexOf(row)
             // create new row for this player
-            activePlayer.getActiveRows()[rowIndex] = Row.createEmpty()            
+            activePlayer.getActiveRows()[rowIndex] = Row.createEmpty()
         }
         //finish turn
-        this.nextPlayer()        
+        this.nextPlayer()
     }
 
     public peekCard(): Card {
@@ -80,11 +81,11 @@ export class Game {
     }
 }
 
-export class GameFactory{
+export class GameFactory {
     private readonly activeRowsPerPlayer: number
     private readonly deckFactory: DeckFactory
     private readonly nPlayers: number
-    
+
     constructor(deckFactory: DeckFactory, nPlayers: number) {
         this.activeRowsPerPlayer = 2
         this.deckFactory = deckFactory
@@ -92,7 +93,7 @@ export class GameFactory{
     }
 
     public getRandomPlayerIndex(): number {
-        return Math.floor(Math.random()*this.nPlayers)
+        return Math.floor(Math.random() * this.nPlayers)
     }
 
     public createPlayers(game: Game): Player[] {
@@ -105,16 +106,16 @@ export class GameFactory{
 
     public createGame(): Game {
         const players: Player[] = []
-        
+
         // create a deck via DeckFactory
         const deck = this.deckFactory.createDeck()
-        
+
         const activeRows = new Map<Player, Row[]>()
         const archivedRows = new Map<Player, Row[]>()
         const activePlayerIndex: number = this.getRandomPlayerIndex()
-        
+
         const game = new Game(players, deck, archivedRows, activeRows, activePlayerIndex)
-        
+
         for (const player of this.createPlayers(game)) {
             // creating players
             players.push(player)

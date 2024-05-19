@@ -10,13 +10,16 @@ export class Row {
         this.cards = cards
     }
 
-    /**
-     * 
-     * adding new card from the deck
-     */
+    public isFull(): boolean {
+        if (this.cards.length >= 4) {
+            return true
+        }
+        return false
+    }
+
     public addCard(card: Card): void {
         //first check if the row has space, then add to the row
-        if(this.isFull()) {
+        if (this.isFull()) {
             throw new Error('Row is full')
         }
         this.cards.push(card) //adding to the row
@@ -28,12 +31,5 @@ export class Row {
             totalPoints += card.getPoints()
         }
         return totalPoints
-    }
-
-    public isFull(): boolean {
-        if(this.cards.length >= 4) {
-            return true
-        }
-        return false
     }
 }

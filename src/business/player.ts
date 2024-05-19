@@ -9,12 +9,12 @@ export class Player {
     }
 
     public isActive(): boolean {
-        if(this.game.getActivePlayer() === this) {
+        if (this.game.getActivePlayer() === this) {
             return true
         }
         return false
     }
-    
+
     public countPoints(): number {
         let points = 0
         for (const row of this.getArchivedRows()) {

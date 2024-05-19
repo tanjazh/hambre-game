@@ -1,4 +1,5 @@
-import { Card, Points, Deck, ManualDeckFactory, DeckFactory } from "./card";
+import { Card, Points, Color } from "./card";
+import { Deck, ManualDeckFactory, DeckFactory } from "./deck";
 import { Row } from "./row";
 import { Game, GameFactory } from "./game";
 import { Player } from './player'
@@ -9,23 +10,23 @@ describe("GameFactory", () => {
         const nPlayers = 2
         const deckFactory = new ManualDeckFactory()
         const gameFactory = new GameFactory(deckFactory, nPlayers)
-        
+
         const game = gameFactory.createGame()
     })
 })
 
 describe("Game", () => {
     test("Game simulation", () => {
-        const card0 = new Card(Points.One)
-        const card1 = new Card(Points.Two)
-        const card2 = new Card(Points.Three)
-        const card3 = new Card(Points.One)
-        const card4 = new Card(Points.Two)
-        const card5 = new Card(Points.Three)
-        const card6 = new Card(Points.One)
-        const card7 = new Card(Points.Two)
-        const card8 = new Card(Points.Three)
-        const card9 = new Card(Points.Three)
+        const card0 = new Card(Points.One, [Color.Purple], "")
+        const card1 = new Card(Points.Two, [Color.Purple], "")
+        const card2 = new Card(Points.Three, [Color.Purple], "")
+        const card3 = new Card(Points.One, [Color.Purple], "")
+        const card4 = new Card(Points.Two, [Color.Purple], "")
+        const card5 = new Card(Points.Three, [Color.Purple], "")
+        const card6 = new Card(Points.One, [Color.Purple], "")
+        const card7 = new Card(Points.Two, [Color.Purple], "")
+        const card8 = new Card(Points.Three, [Color.Purple], "")
+        const card9 = new Card(Points.Three, [Color.Purple], "")
         const cards = [card0, card1, card2, card3, card4, card5, card6, card7, card8, card9]
         const deck = new Deck(cards)
 
@@ -55,21 +56,21 @@ describe("Game", () => {
         game.placeCardToRow(card6, player1Rows[0])
         game.placeCardToRow(card5, player0Rows[0])
         game.placeCardToRow(card4, player1Rows[0])
-        
+
         expect(player0.countPoints()).toBe(0)
         expect(player1.countPoints()).toBe(0)
 
         game.placeCardToRow(card3, player0Rows[0])
-        
+
         expect(player0.countPoints()).toBe(9)
         expect(player1.countPoints()).toBe(0)
-        
+
         game.placeCardToRow(card2, player1Rows[0])
-        
+
         expect(player0.countPoints()).toBe(9)
-        
+
         expect(game.isFinished()).toBe(false)
-        
+
         expect(player1.countPoints()).toBe(9)
 
         game.placeCardToRow(card1, player0Rows[0])
