@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Game, GameFactory, RealDeckFactory } from '../../business'
+import { useSelector, useDispatch } from 'react-redux'
+import { createGame, selectGame } from '../../store/hambreSlice'
 
 
 export const GameBoard: React.FC<{}> = () => {
-    const [game, setGame] = useState<Game>();
+    const game = useSelector(selectGame)
+    const dispatch = useDispatch()
+
 
     useEffect(() => {
-        const deckFactory = new RealDeckFactory();
-        const gameFactory = new GameFactory(deckFactory, 2);
-        const newGame = gameFactory.createGame();
-        setGame(newGame);
-    }, []);
+        dispatch(createGame())
+    }, [dispatch]);
 
     if (!game) {
         return <div>Loading game...</div>;
