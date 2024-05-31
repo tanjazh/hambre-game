@@ -19,6 +19,10 @@ export class Game {
         this.activePlayerIndex = activePlayerIndex
     }
 
+    public getPlayer(index: number): Player {
+        return this.players[index]
+    }
+
     public getActivePlayer(): Player {
         return this.players[this.activePlayerIndex]
     }

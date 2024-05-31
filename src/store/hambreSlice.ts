@@ -23,4 +23,3 @@ export const hambreSlice = createSlice({
 
 export const { createGame } = hambreSlice.actions
 export default hambreSlice.reducer
-export const selectGame = (state: GameState) => state.game

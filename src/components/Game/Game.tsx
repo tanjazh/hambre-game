@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import { Game, GameFactory, RealDeckFactory } from '../../business'
-import { useSelector, useDispatch } from 'react-redux'
-import { createGame, selectGame } from '../../store/hambreSlice'
-
+import React from 'react';
+import { useAppDispatch, useAppSelector } from '../../store/store';
+import './Game.css';
+import { CardComponent } from '../Card/CardComponent';
 
 export const GameBoard: React.FC<{}> = () => {
-    const game = useSelector(selectGame)
-    const dispatch = useDispatch()
-
-
-    useEffect(() => {
-        dispatch(createGame())
-    }, [dispatch]);
+    const dispatch = useAppDispatch()
+    const game = useAppSelector(state => state.hambre.game)
 
     if (!game) {
         return <div>Loading game...</div>;
     }
 
+    // const player0 = game.getPlayer(0)
+
+    const nextCard = game.peekCard()
+
     return (
         <div>
-
+            <CardComponent card={nextCard} />
         </div>
     )
 }
+
+
+//{nextCard.getPoints()} {nextCard.getColors()}

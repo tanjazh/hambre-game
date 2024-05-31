@@ -26,4 +26,8 @@ export class Card {
     getPoints(): number {
         return this.points
     }
+
+    getColors(): Color[] {
+        return this.colors
+    }
 };
