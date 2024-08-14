@@ -142,7 +142,7 @@ export function CardComponent({ card, zIndex }: CardComponentProps) {
                     <PointsContainer position='upper'>{points}</PointsContainer>
                     <ImageContainer>
                         <ImageBackgroundContainer src={`/NewSparkle.png`} />
-                        <ImageForeground src={`/foodIcons/${card.getImage()}.png`} />
+                        <ImageForeground src={`${process.env.PUBLIC_URL}/foodIcons/${card.getImage()}.png`} />
                     </ImageContainer>
                     <PointsContainer position='lower'>{points}</PointsContainer>
                 </CardContent>

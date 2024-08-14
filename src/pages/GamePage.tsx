@@ -15,7 +15,7 @@ interface GameBoardProps {
 
 const Background = styled.div`
     display: flex;
-    background-image: url(/Adobe_Background.png);
+    background-image: url(${process.env.PUBLIC_URL}/Adobe_Background.png);
     background-size: cover;
     justify-content: center;
     align-items: center;

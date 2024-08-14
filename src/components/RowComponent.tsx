@@ -20,7 +20,7 @@ const SingleRowContainer = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url(/logo.png);
+        background-image: url(${process.env.PUBLIC_URL}/logo.png);
         background-size: 200px;
         background-repeat: no-repeat;
         background-position: center;

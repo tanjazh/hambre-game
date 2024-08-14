@@ -6,7 +6,7 @@ import { useState, ChangeEvent } from "react";
 
 const WelcomePageBackground = styled.div`
     display: flex;
-    background-image: url(/dale_background.webp);
+    background-image: url(${process.env.PUBLIC_URL}/dale_background.webp);
     background-size: cover;
     justify-content: center;
     align-items: center;

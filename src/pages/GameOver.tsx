@@ -7,7 +7,7 @@ import { createGame } from "../store/hambreSlice";
 const Background = styled.div`
     display: flex;
     position: relative;
-    background-image: url(/dale_background.webp);
+    background-image: url(${process.env.PUBLIC_URL}/dale_background.webp);
     background-size: cover;
     justify-content: center;
     align-items: center;
