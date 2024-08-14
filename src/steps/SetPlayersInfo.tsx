@@ -11,7 +11,6 @@ export function SetPlayersInfo(props: PlayersInfoProps) {
     return (
         <Flex>
             <Heading as={"h1"} fontSize={"3xl"} position={"relative"}>
-
             </Heading>
             <Input
                 placeholder='Name'

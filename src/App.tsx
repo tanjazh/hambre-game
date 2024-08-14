@@ -1,41 +1,17 @@
-import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Flex, Spacer } from '@chakra-ui/react'
-import { GameBoard } from './components/Game/Game'
-import { useDispatch } from 'react-redux';
-import { createGame } from './store/hambreSlice';
-import { SetPlayersInfo } from './steps/SetPlayersInfo'
-import { CardComponent } from './components/Card/CardComponent';
-
-enum Step {
-  SetPlayersInfo,
-  Play,
-  Score
-}
+import { Flex } from '@chakra-ui/react'
+import { GameBoard } from './pages/GamePage'
+import { WelcomePage } from './pages/WelcomePage';
+import { useAppSelector } from './store/store';
 
 function App() {
-  const [step, setStep] = useState<Step>(Step.SetPlayersInfo)
+  const game = useAppSelector(state => state.hambre.game);
+  const playerName = useAppSelector(state => state.hambre.playerName);
 
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(createGame())
-  }, [dispatch]);
-
-  const renderScreenByStep = () => {
-    switch (step) {
-      case Step.SetPlayersInfo:
-        return <SetPlayersInfo onClickNext={(name: string) => { setStep(Step.Play) }} />;
-      case Step.Play:
-        return <GameBoard />;
-      case Step.Score:
-        return <></>;
-    }
-  }
   return (
     <Flex>
-      <GameBoard />
+      {!game && <WelcomePage />}
+      {!!game && <GameBoard game={game} playerName={playerName} />}
     </Flex>
   );
 }

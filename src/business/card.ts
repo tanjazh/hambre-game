@@ -3,14 +3,14 @@ export enum Points {
     One = 1,
     Two = 2,
     Three = 3,
-}
+};
 
 export enum Color {
     Orange = "orange",
     Blue = "blue",
     Green = "green",
     Purple = "purple",
-}
+};
 
 export class Card {
     private readonly points: Points;
@@ -21,13 +21,17 @@ export class Card {
         this.points = points;
         this.colors = colors;
         this.image = image;
-    }
+    };
 
     getPoints(): number {
         return this.points
-    }
+    };
 
     getColors(): Color[] {
         return this.colors
-    }
+    };
+
+    getImage(): string {
+        return this.image
+    };
 };

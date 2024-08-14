@@ -27,6 +27,10 @@ export class Game {
         return this.players[this.activePlayerIndex]
     }
 
+    public getPlayers(): Player[] {
+        return this.players;
+    }
+
     public isFinished(): boolean {
         return this.deck.isEmpty()
     }
@@ -111,7 +115,6 @@ export class GameFactory {
     public createGame(): Game {
         const players: Player[] = []
 
-        // create a deck via DeckFactory
         const deck = this.deckFactory.createDeck()
 
         const activeRows = new Map<Player, Row[]>()
