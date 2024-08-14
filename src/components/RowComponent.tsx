@@ -42,11 +42,11 @@ const AddCard = styled.div`
     margin-right: 40px;
     justify-content: center;
     align-items: center;
-    border: 2px solid rgba(81, 167, 186);;
+    border: 2px solid white;
     border-radius: 8px;
     font-family: comic sans ms;
     font-size: 60px;
-    color: rgba(30, 26, 28, 0.8);
+    color: white;
 `;
 
 const NoCard = styled.div`

@@ -29,6 +29,18 @@ const NameInput = styled.input`
     border-color: #7ffbf5;}
 `;
 
+const StartButton = styled(ChakraButton)`
+    background: grey;
+    border-radius: 25px;
+    height: 30px;
+    width: 100px;
+    font-family: Super Bubble;
+    color: white;
+    &:disabled {
+
+    }
+`;
+
 export function WelcomePage() {
     const [name, setName] = useState<string>("");
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -47,18 +59,15 @@ export function WelcomePage() {
             <NameInput
                 type="text"
                 value={name} onChange={handleInputChange}
-                placeholder="Enter player name" />
-            <ChakraButton
-                backgroundColor="grey"
+                placeholder="Enter player name"
+            />
+            <StartButton
                 onClick={onClick}
-                borderRadius="25px"
-                height="30px"
-                width="100px"
-                fontFamily="Super Bubble"
-                color="white"
+                isDisabled={name === ""}
+                _disabled={{ backgroundColor: "lightgrey", cursor: "not-allowed" }}
             >
                 PLAY
-            </ChakraButton>
+            </StartButton>
         </WelcomePageBackground>
     );
 };
