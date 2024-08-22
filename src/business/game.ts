@@ -31,6 +31,10 @@ export class Game {
         return this.players;
     }
 
+    public getDeck(): Deck {
+        return this.deck;
+    }
+
     public isFinished(): boolean {
         return this.deck.isEmpty()
     }

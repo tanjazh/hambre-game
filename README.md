@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+HAMBRE GAME
+=============
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> a card game written in TypeScript using React.
+> The game can be played in the webbrowser: [Play](https://tanjazh.github.io/hambre-game).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Content
 
-### `npm start`
+* [General Info](#general-info)
+* [Playing](#playing)
+* [Technologies Used](#technologies-used)
+* [SetUp](#setup)
+* [Key Features](#key-features)
+* [Status](#status)
+* [Inspiration](#inspiration)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## General Info
 
-### `npm test`
+- Provide general information about your project here.
+- What problem does it (intend to) solve?
+- What is the purpose of your project?
+- Why did you undertake it?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> This project is a card game called Hambre built with React and TypeScript, developed as a hands-on way to solidify my skills in frontend development. 
+>
+>After completing several bootcamps, I wanted to create something engaging that would challenge me to apply everything I learned—from component architecture and state management to TypeScript’s strong typing. The goal of this project was not only to build a fun, interactive game but also to reinforce my understanding of modern frontend practices and best coding standards in a real-world setting.
 
-### `npm run build`
+--- 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Playing
+Mix over 30 ingredients to create unique 4-card combos in this fast-paced game of cards. Compete using random ingredients, and score as many points as possible before the main deck runs out of cards!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+How to play
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Hambre presents a simple mechanic of drawing a card and playing a card.
 
-### `npm run eject`
+Each time it is your turn, you will get a new random ingredient card.
+Each player has two boards that store up to 4 cards each (refrigerator and table).
+Each time a player collects 4 cards on a board, he will have created a combo. Add up the points for each card and add them to your score sheet.
+Finally remove the cards from the game and keep cooking combos until you run out of ingredients.
+If you manage to collect 4 cards from the same menu (same color) the points are doubled.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technologies used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Setup
+What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
-## Learn More
+Proceed to describe how to install / setup one's local environment / get started with the project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Key Features
+
+
+---
+
+## Status
+> Project is: _in progress_ 
+
+---
+
+## Inspiration
+Give credit here.
+- This project was inspired by the card game [Hambre](https://www.shadowgames.shop/de/product/hambre-boardgame/).
+- This project was based on [this tutorial](https://www.example.com).
+- Many thanks to...
+
+---

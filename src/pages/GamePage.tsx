@@ -40,6 +40,27 @@ const CenteredGridItem = styled(GridItem)`
     align-items: center;
 `;
 
+const DeckContainer = styled.div`
+  position: relative;
+  width: 120px;
+  height: 160px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StackEffect = styled.div<{ offsetX: number; offsetY: number }>`
+  position: absolute;
+  width: 100px;
+  height: 125px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: rgba(247, 168, 208, 0.8);
+  z-index: 0;
+  transform: translate(${props => props.offsetX}px, ${props => props.offsetY}px);
+`;
+
 const RowContainer = styled.div<{ position: 'second-player' | 'first-player' }>`
     display: flex;
     flex-direction: row; 
@@ -112,7 +133,7 @@ export const GameBoard = ({ game, playerName }: GameBoardProps) => {
         };
     }, [player2, activePlayer, game]);
 
-    console.log("isFinished", game.isFinished());
+    const deckSize = game.getDeck().getCount();
 
     if (game.isFinished()) {
         return (
@@ -151,7 +172,26 @@ export const GameBoard = ({ game, playerName }: GameBoardProps) => {
                     </RowContainer>
                 </CenteredGridItem>
                 <CenteredGridItem area={'playGround'}>
-                    <CardComponent card={game.peekCard()} zIndex={1} />
+                    <DeckContainer>
+                        {deckSize > 42 && (
+                            <>
+                                <StackEffect offsetX={0} offsetY={-14} />
+                                <StackEffect offsetX={-10} offsetY={-7} />
+                                <StackEffect offsetX={-20} offsetY={0} />
+                            </>
+                        )}
+                        {deckSize <= 42 && deckSize > 20 && (
+                            <>
+                                <StackEffect offsetX={-10} offsetY={-7} />
+                                <StackEffect offsetX={-20} offsetY={0} />
+                            </>
+                        )}
+                        {deckSize <= 20 && (
+                            <StackEffect offsetX={-20} offsetY={0} />
+                        )}
+
+                        <CardComponent card={game.peekCard()} zIndex={1} />
+                    </DeckContainer>
                 </CenteredGridItem>
                 <CenteredGridItem area={'firstPlayerRows'}>
                     <RowContainer position='first-player'>
