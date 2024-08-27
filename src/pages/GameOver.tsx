@@ -17,11 +17,12 @@ const Background = styled.div`
 `;
 
 const StyledCard = styled(Card)`
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     display: flex;
     position: relative;
     background: #f98dc9;
+    text-align: center;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -37,18 +38,17 @@ export function GameOver() {
 
     function winnerHambre() {
         if (player1Points > player2Points) {
-            return 'YOU WON!';
+            return <p>YOU WON</p>;
         } else if (player1Points < player2Points) {
-            return 'YOU LOST!';
+            return <p>YOU LOST</p>;
         } else {
-            return 'It is a tie!';
+            return <p>It's a tie!</p>;
         }
     };
 
     const dispatch = useDispatch();
 
     function onClick() {
-
         dispatch(createGame())
     };
 
@@ -57,7 +57,8 @@ export function GameOver() {
             <Card>
                 <StyledCard>
                     <CardHeader>
-                        GAME OVER <br /> {winnerHambre()}
+                        <h1>GAME OVER</h1>
+                        <p>{winnerHambre()}</p>
                     </CardHeader>
                     <CardBody>
                         Player1 Points: {player1Points} <br />

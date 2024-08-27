@@ -21,10 +21,10 @@ const CenteredContent = styled.div`
 `;
 
 const HambreLogo = styled.img`
-    height: 100px;
-    width: 180px;
+    height: 200px;
+    width: 300px;
     position: relative;
-    margin-top: -10px;
+    margin-top: -50px;
 `;
 
 export function InfoComponent({ onContinue }: { onContinue: () => void }) {
@@ -35,15 +35,8 @@ export function InfoComponent({ onContinue }: { onContinue: () => void }) {
             </CardHeader>
             <CardBody>
                 <CenteredContent>
-                    <p>Hambre is a fast-paced card game where you mix over 30 ingredients to create unique 4-card combos. Compete to score the most points before the deck runs out!</p>
-                    <h4>How to Play</h4>
-                    <ul>
-                        <li>On your turn, draw a random ingredient card.</li>
-                        <li>Store cards on your two boards (refrigerator and table), each holding up to 4 cards.</li>
-                        <li>Create a combo when you collect 4 cards on a board, score the points, and remove the cards.</li>
-                        <li>Keep making combos until ingredients run out.</li>
-                        <li>Matching all 4 cards by color doubles your points.</li>
-                    </ul>
+                    <p>Mix over 30 ingredients to create 4-card combos in this fast-paced card game!</p>
+                    <p>Draw and play cards to create combos on your refrigerator and table boards. Each completed combo scores points, with double points for combos of the same color. Keep crafting combos until the main deck runs out of cards!</p>
                 </CenteredContent>
             </CardBody>
             <CardFooter>
